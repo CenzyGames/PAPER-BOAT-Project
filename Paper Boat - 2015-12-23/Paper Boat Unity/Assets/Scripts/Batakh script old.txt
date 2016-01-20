@@ -1,0 +1,47 @@
+using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+
+public class batakhScript : MonoBehaviour {
+   	float length;		
+	float speed;		
+	int goUp;		
+
+    public GameObject ripple;
+    GameObject ripple_clone;
+    public float rippleDelay;
+
+    void Start ()
+    {
+        goUp = Random.Range(0, 2);
+        transform.position = goUp == 0 ? new Vector3(transform.position.x, transform.position.y, -1.6f) : new Vector3(transform.position.x, transform.position.y, -0.4f);
+        transform.eulerAngles = goUp == 0 ? new Vector3(transform.eulerAngles.x, 0, transform.eulerAngles.z) : new Vector3(transform.eulerAngles.x, 180, transform.eulerAngles.z); 
+        length = goUp == 0 ? 1 : -1;
+        speed = Random.Range(0.002f, 0.004f);
+        StartCoroutine("createRipple"); 
+		StartCoroutine ("move");
+    }
+
+    IEnumerator createRipple()
+    {
+        ripple_clone = Instantiate(ripple, transform.position + (Vector3.up * 0.035f), Quaternion.identity) as GameObject;
+        ripple_clone.GetComponent<rippleScript>().delay = 1.0f;
+        ripple_clone.GetComponent<rippleScript>().rippleScale = 0.001f;
+        ripple_clone.GetComponent<rippleScript>().move = Vector3.left * 0.01f;
+        yield return new WaitForSeconds(rippleDelay);
+        StartCoroutine("createRipple");
+    }
+
+	
+	IEnumerator move()
+	{
+		transform.Translate(-0.01f, 0, speed*length) ;	
+		if (transform.position.x < -4)
+		{
+			Destroy(gameObject,0.1f);
+		}
+		yield return new WaitForSeconds (0.01f);
+		StartCoroutine ("move");
+	}
+
+}
