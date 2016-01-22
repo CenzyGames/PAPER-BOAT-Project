@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: e22ce35926e06ab4ba97cf5974c513ae
-timeCreated: 1450826243
+timeCreated: 1453469331
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -162,20 +162,20 @@ TextureImporter:
     - name: slip single
       rect:
         serializedVersion: 2
-        x: 452
-        y: 229
-        width: 84
-        height: 87
+        x: 449
+        y: 220
+        width: 78
+        height: 93
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: slips icon
       rect:
         serializedVersion: 2
-        x: 616
-        y: 213
-        width: 107
-        height: 102
+        x: 611
+        y: 206
+        width: 112
+        height: 116
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
