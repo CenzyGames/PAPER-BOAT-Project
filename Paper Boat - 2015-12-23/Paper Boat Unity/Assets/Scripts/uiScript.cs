@@ -73,7 +73,7 @@ public class uiScript : MonoBehaviour {
 
 		boatBought = new bool[6]; //checks if a boat is bought
 
-		Advertisement.Initialize("1023219", true);//initialize ad
+		//Advertisement.Initialize("1023219", true);//initialize ad
        	
 		PlayerPrefs.SetString("ReviveByAds","True");	//--- RC to check that revive button is pressed only once
 
